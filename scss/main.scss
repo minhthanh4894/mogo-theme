@@ -38,10 +38,23 @@ img {
   padding-right: 2rem;
   padding-left: 2rem;
 }
-
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 center;
+  }
+  50% {
+    background-position: -192rem center;
+  }
+  100% {
+    background-position: 0 center;
+  }
+}
 .header {
   @media screen and (min-width: 1200px) {
     min-height: 100rem;
+  }
+  @media screen and (max-width: 767px) {
+    height: 100vh;
   }
   background-image: linear-gradient(
       to bottom,
@@ -49,9 +62,13 @@ img {
       rgba(241, 217, 138, 0.8)
     ),
     url(../images/header-bg.jpg);
-  background-position: center;
+  // background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  // Animate background di chuyển ngang
+  animation: animatedBackground 180s linear infinite;
   padding-top: 3rem;
   &__top {
     display: flex;
@@ -66,16 +83,17 @@ img {
       right: 3rem;
       color: var(--third-color);
       display: none;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         display: block;
         cursor: pointer;
+
       }
       @media screen and (max-width: 375px) {
         display: block;
         cursor: pointer;
       }
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin-bottom: 4.4rem;
     }
     @media screen and (max-width: 375px) {
@@ -92,11 +110,11 @@ img {
       font-size: 7.2rem;
       font-family: var(--third-font);
       margin-bottom: 4.5rem;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         font-size: 4rem;
       }
       @media screen and (max-width: 375px) {
-        margin-bottom: 2.5rem;
+        margin-bottom: 3.5rem;
       }
     }
     & > h1 {
@@ -110,14 +128,14 @@ img {
       margin-bottom: 5.4rem;
       text-align: center;
       position: relative;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         font-size: 8rem;
         // margin-bottom: 6rem;
       }
       @media screen and (max-width: 375px) {
         font-size: 4rem;
         padding-bottom: 3.5rem;
-        margin-bottom: 2.5rem;
+        margin-bottom: 3.5rem;
       }
     }
     & > a {
@@ -128,13 +146,17 @@ img {
       text-transform: uppercase;
       text-decoration: none;
       margin-bottom: 13.2rem;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         margin-bottom: 6rem;
       }
       @media screen and (max-width: 375px) {
-        margin-bottom: 3rem;
+        margin-bottom: 18rem;
+        margin-top: 2rem;
         font-size: 1rem;
       }
+    }
+    @media screen and (max-width: 767px) {
+      height: 100vh;
     }
   }
   &__slide {
@@ -264,6 +286,9 @@ img {
   &__list {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
   }
   &__item {
     position: relative;
@@ -329,8 +354,12 @@ img {
         margin-bottom: 0.75rem;
       }
     }
+    @media screen and (max-width: 767px) {
+      width: 80%;
+      margin: 1rem auto;
+    }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
@@ -380,7 +409,7 @@ img {
     max-width: 96rem;
     text-align: center;
     margin: 4.5rem 0 9rem 0;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin: 4.5rem 0 5rem 0;
     }
     @media screen and (max-width: 375px) {
@@ -412,7 +441,7 @@ img {
     &:last-child {
       border-right: 1px solid #b5eae0;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       height: 17rem;
     }
     @media screen and (max-width: 375px) {
@@ -424,7 +453,7 @@ img {
     font-weight: bold;
     font-size: 7.2rem;
     margin-bottom: 2rem; //Do line-height của number là 1rem, nên muốn khoảng cách giữa number và text là 3 rem thì phải margin-bottom: 2rem (1+2=3rem)
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       font-size: 4rem;
     }
     @media screen and (max-width: 375px) {
@@ -435,7 +464,7 @@ img {
     font-family: var(--secondary-font);
     font-size: 1.4rem;
     text-transform: uppercase;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       font-size: 1.1rem;
     }
     @media screen and (max-width: 375px) {
@@ -468,7 +497,7 @@ img {
         margin-top: 3rem;
       }
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin: 6rem 0;
     }
     @media screen and (max-width: 375px) {
@@ -513,7 +542,7 @@ img {
       height: 1.5rem;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 5rem;
   }
 }
@@ -543,7 +572,7 @@ img {
       bottom: -3rem;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 6rem;
   }
 }
@@ -585,7 +614,7 @@ img {
     display: flex;
     justify-content: space-between;
     margin-bottom: 12rem;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin-bottom: 6rem;
       flex-direction: column-reverse;
       justify-content: center;
@@ -598,7 +627,7 @@ img {
     width: 50%;
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin: 0 auto;
     }
     @media screen and (max-width: 375px) {
@@ -668,7 +697,7 @@ img {
       font-weight: lighter;
       font-size: 2.4rem;
       margin-bottom: 2.4rem;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         font-size: 1.6rem;
       }
       @media screen and (max-width: 375px) {
@@ -722,14 +751,14 @@ img {
 // Phần MEET OUR TEAM
 .meet {
   padding-top: 10rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 5rem;
   }
   &__list {
     display: flex;
     justify-content: space-between;
     margin-bottom: 12rem;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
       margin-bottom: 6rem;
     }
     @media screen and (max-width: 375px) {
@@ -853,7 +882,7 @@ img {
   padding: 6rem 0;
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding: 3rem 0;
   }
 }
@@ -868,7 +897,7 @@ img {
 }
 .work {
   padding-top: 11rem;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     padding-top: 5rem;
   }
   &__pics {
@@ -941,7 +970,7 @@ img {
       font-weight: lighter;
       font-size: 2.4rem;
       margin-bottom: 2.4rem;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 767px) {
         font-size: 1.6rem;
       }
       @media screen and (max-width: 375px) {
